@@ -17,7 +17,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         requestCollection()
-        photoAuthorization()
+
     }
     
     func requestCollection() {
@@ -27,27 +27,7 @@ class ViewController: UIViewController {
         option.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
         self.fetchResult = PHAsset.fetchAssets(in: object, options: option)
     }
-    
-    func photoAuthorization() {
-            let author = PHPhotoLibrary.authorizationStatus()
-            switch author {
-            case .notDetermined:
-                PHPhotoLibrary.requestAuthorization { (status) in
-                    switch status {
-                    case .authorized:
-                        self.requestCollection()
-                        self.imageCollectionView.reloadData()
-                    default:
-                        return
-                    }
-                }
-            case .authorized:
-                self.requestCollection()
-                self.imageCollectionView.reloadData()
-            default:
-                return
-            }
-        }
+
 }
 
 extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
