@@ -34,11 +34,13 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: UICollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-        let red = CGFloat(drand48())
-        let green = CGFloat(drand48())
-        let blue = CGFloat(drand48())
-        let randomColor = UIColor(red: red, green: green, blue: blue, alpha: 1.0)
-        cell.backgroundColor = randomColor
+        let imageView = UIImageView()
+        cell.addSubview(imageView)
+        let asset = fetchResult.object(at: indexPath.row)
+        
+        imageManager.requestImage(for: asset, targetSize: CGSize(width: 80, height: 80), contentMode: .aspectFill, options: nil) { (image, _) in
+            imageView.image = image
+        }
         return cell
     }
 }
