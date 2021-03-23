@@ -6,26 +6,46 @@
 //
 
 import UIKit
+import Photos
 
 class ViewController: UIViewController {
+    @IBOutlet var imageCollectionView: UICollectionView!
+    
+    var fetchResult: PHFetchResult<PHAsset>!
+    let imageManager: PHCachingImageManager = PHCachingImageManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        requestCollection()
+        PHPhotoLibrary.shared().register(self)
+    }
+    
+    func requestCollection() {
+        let cameraRoll = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: .smartAlbumUserLibrary, options: nil)
+        guard let object = cameraRoll.firstObject else { return }
+        let option = PHFetchOptions()
+        option.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
+        self.fetchResult = PHAsset.fetchAssets(in: object, options: option)
     }
 }
 
 extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 40
+        return fetchResult?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell: UICollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-        let red = CGFloat(drand48())
-        let green = CGFloat(drand48())
-        let blue = CGFloat(drand48())
-        let randomColor = UIColor(red: red, green: green, blue: blue, alpha: 1.0)
-        cell.backgroundColor = randomColor
+        let cell: ImageCell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ImageCell
+        let asset = fetchResult.object(at: indexPath.row)
+
+        imageManager.requestImage(for: asset, targetSize: CGSize(width: 80, height: 80), contentMode: .aspectFit, options: nil) { (image, _) in
+            cell.photoImageView.image = image
+        }
         return cell
+    }
+}
+
+extension ViewController: PHPhotoLibraryChangeObserver {
+    func photoLibraryDidChange(_ changeInstance: PHChange) {
     }
 }
