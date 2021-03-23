@@ -13,11 +13,11 @@ class ViewController: UIViewController {
     
     var fetchResult: PHFetchResult<PHAsset>!
     let imageManager: PHCachingImageManager = PHCachingImageManager()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         requestCollection()
-
+        PHPhotoLibrary.shared().register(self)
     }
     
     func requestCollection() {
@@ -27,7 +27,6 @@ class ViewController: UIViewController {
         option.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
         self.fetchResult = PHAsset.fetchAssets(in: object, options: option)
     }
-
 }
 
 extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -43,5 +42,10 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
             cell.photoImageView.image = image
         }
         return cell
+    }
+}
+
+extension ViewController: PHPhotoLibraryChangeObserver {
+    func photoLibraryDidChange(_ changeInstance: PHChange) {
     }
 }
