@@ -10,8 +10,20 @@ import Photos
 
 class ViewController: UIViewController {
     
+    var fetchResult: PHFetchResult<PHAsset>!
+    let imageManager: PHCachingImageManager = PHCachingImageManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        requestCollection()
+    }
+    
+    func requestCollection() {
+        let cameraRoll = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: .smartAlbumUserLibrary, options: nil)
+        guard let object = cameraRoll.firstObject else { return }
+        let option = PHFetchOptions()
+        option.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
+        self.fetchResult = PHAsset.fetchAssets(in: object, options: option)
     }
 }
 
