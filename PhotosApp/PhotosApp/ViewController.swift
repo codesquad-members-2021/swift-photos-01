@@ -9,6 +9,7 @@ import UIKit
 import Photos
 
 class ViewController: UIViewController {
+    @IBOutlet var imageCollectionView: UICollectionView!
     
     var fetchResult: PHFetchResult<PHAsset>!
     let imageManager: PHCachingImageManager = PHCachingImageManager()
@@ -16,6 +17,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         requestCollection()
+        photoAuthorization()
     }
     
     func requestCollection() {
@@ -25,21 +27,40 @@ class ViewController: UIViewController {
         option.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
         self.fetchResult = PHAsset.fetchAssets(in: object, options: option)
     }
+    
+    func photoAuthorization() {
+            let author = PHPhotoLibrary.authorizationStatus()
+            switch author {
+            case .notDetermined:
+                PHPhotoLibrary.requestAuthorization { (status) in
+                    switch status {
+                    case .authorized:
+                        self.requestCollection()
+                        self.imageCollectionView.reloadData()
+                    default:
+                        return
+                    }
+                }
+            case .authorized:
+                self.requestCollection()
+                self.imageCollectionView.reloadData()
+            default:
+                return
+            }
+        }
 }
 
 extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 40
+        return fetchResult?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell: UICollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-        let imageView = UIImageView()
-        cell.addSubview(imageView)
+        let cell: ImageCell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ImageCell
         let asset = fetchResult.object(at: indexPath.row)
-        
-        imageManager.requestImage(for: asset, targetSize: CGSize(width: 80, height: 80), contentMode: .aspectFill, options: nil) { (image, _) in
-            imageView.image = image
+
+        imageManager.requestImage(for: asset, targetSize: CGSize(width: 80, height: 80), contentMode: .aspectFit, options: nil) { (image, _) in
+            cell.photoImageView.image = image
         }
         return cell
     }
