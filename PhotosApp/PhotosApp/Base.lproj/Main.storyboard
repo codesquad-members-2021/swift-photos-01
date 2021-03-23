@@ -52,10 +52,29 @@
                             <constraint firstItem="e3L-dR-jaP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Ucn-pP-dSk"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="QW4-y6-Wlw"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-204" y="89"/>
+            <point key="canvasLocation" x="724.61538461538464" y="88.862559241706151"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="DOY-2O-rFK">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="tI6-BL-BS3" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="F5b-K8-YyK">
+                        <rect key="frame" x="0.0" y="44" width="390" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="W62-3o-dFp"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EMo-gD-LHC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-204.61538461538461" y="88.862559241706151"/>
         </scene>
     </scenes>
     <resources>
