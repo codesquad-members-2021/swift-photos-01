@@ -6,17 +6,24 @@
 //
 
 import UIKit
+import PhotosUI
+import Photos
 
 class PhotoCollectionView : UICollectionView{
     
+    private let photomanager : PhotoSender
+    private let imageManager = PHCachingImageManager()
+    
     init(collectionView : UICollectionView, frame: CGRect) {
         let layout = UICollectionViewLayout()
+        self.photomanager = PhotoDataManager()
         super.init(frame: frame, collectionViewLayout: layout)
         self.delegate = self
         self.dataSource = self
     }
     
     required init?(coder: NSCoder) {
+        self.photomanager = PhotoDataManager()
         super.init(coder: coder)
         self.delegate = self
         self.dataSource = self
@@ -26,16 +33,18 @@ class PhotoCollectionView : UICollectionView{
 extension PhotoCollectionView : UICollectionViewDelegate, UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 40
+        return photomanager.sendfetchCount()
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell: UICollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-        let red = CGFloat(drand48())
-        let green = CGFloat(drand48())
-        let blue = CGFloat(drand48())
-        let randomColor = UIColor(red: red, green: green, blue: blue, alpha: 1.0)
-        cell.backgroundColor = randomColor
+        let cell : PhotoCell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! PhotoCell
+        let asset = photomanager.sendPhotoMetaData(index: indexPath)
+        cell.representedAssetIdentifier = asset.localIdentifier
+        self.imageManager.requestImage(for: asset, targetSize: CGSize(width: 100, height: 100), contentMode: .aspectFill, options: nil, resultHandler: { image, _ in
+            if cell.representedAssetIdentifier == asset.localIdentifier{
+                cell.imageView.image = image
+            }
+        })
         return cell
     }
 }
