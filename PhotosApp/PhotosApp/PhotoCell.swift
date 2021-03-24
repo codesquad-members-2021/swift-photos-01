@@ -9,7 +9,7 @@ import UIKit
 
 class PhotoCell : UICollectionViewCell{
     @IBOutlet weak var imageView: UIImageView!
-    var representedAssetIdentifier : String!
+    private var representedAssetIdentifier : String!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -20,4 +20,4 @@ class PhotoCell : UICollectionViewCell{
         super.init(coder: coder)
         self.backgroundColor = .white
     }
-  }
+}

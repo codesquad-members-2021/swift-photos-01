@@ -39,12 +39,8 @@ extension PhotoCollectionView : UICollectionViewDelegate, UICollectionViewDataSo
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell : PhotoCell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! PhotoCell
         let asset = photomanager.sendPhotoMetaData(index: indexPath)
-        cell.representedAssetIdentifier = asset.localIdentifier
-        self.imageManager.requestImage(for: asset, targetSize: CGSize(width: 100, height: 100), contentMode: .aspectFill, options: nil, resultHandler: { image, _ in
-            if cell.representedAssetIdentifier == asset.localIdentifier{
-                cell.imageView.image = image
-            }
-        })
+        cell.setPhotoCellId(localIdentifier: asset.localIdentifier)
+        cell.imageView.image = PhotoShowManager().sendImageToCell(asset: asset)
         return cell
     }
 }
