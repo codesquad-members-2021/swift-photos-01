@@ -56,7 +56,9 @@
                             <constraint firstItem="e3L-dR-jaP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Ucn-pP-dSk"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Photos" id="yx1-G0-Hly"/>
+                    <navigationItem key="navigationItem" title="Photos" id="yx1-G0-Hly">
+                        <barButtonItem key="leftBarButtonItem" systemItem="add" id="AYY-n0-Njg"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
