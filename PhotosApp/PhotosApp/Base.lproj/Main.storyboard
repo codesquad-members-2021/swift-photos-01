@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="tI6-BL-BS3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="76T-U0-2tW">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="e3L-dR-jaP">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="e3L-dR-jaP" customClass="PhotoCollectionView" customModule="PhotosApp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="88" width="390" height="722"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="RJA-Zv-pZW">
@@ -27,33 +27,24 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="bfS-6h-6Y4" customClass="ImageCell" customModule="PhotosApp" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="bfS-6h-6Y4" customClass="PhotoCell" customModule="PhotosApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="H5p-xZ-MRL">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="0mE-zD-LMu">
                                             <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5oE-AR-mxa">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="e1s-68-Hfu">
                                                     <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 </imageView>
                                             </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="5oE-AR-mxa" secondAttribute="trailing" id="6ZD-2L-Sgr"/>
-                                                <constraint firstItem="5oE-AR-mxa" firstAttribute="leading" secondItem="H5p-xZ-MRL" secondAttribute="leading" id="Gnf-mt-7ey"/>
-                                                <constraint firstAttribute="bottom" secondItem="5oE-AR-mxa" secondAttribute="bottom" id="SGx-ZT-mee"/>
-                                                <constraint firstItem="5oE-AR-mxa" firstAttribute="top" secondItem="H5p-xZ-MRL" secondAttribute="top" id="kGi-Pt-dA6"/>
-                                            </constraints>
                                         </collectionViewCellContentView>
                                         <connections>
-                                            <outlet property="photoImageView" destination="5oE-AR-mxa" id="Pka-3k-mjw"/>
+                                            <outlet property="imageView" destination="e1s-68-Hfu" id="Fjv-Y4-x8A"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
-                                <connections>
-                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="Ugk-r2-zwQ"/>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="ymo-pL-Nj0"/>
-                                </connections>
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -65,32 +56,29 @@
                             <constraint firstItem="e3L-dR-jaP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Ucn-pP-dSk"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Photos" id="9OD-bq-CtJ"/>
-                    <connections>
-                        <outlet property="imageCollectionView" destination="e3L-dR-jaP" id="3QP-NZ-Rkm"/>
-                    </connections>
+                    <navigationItem key="navigationItem" title="Photos" id="yx1-G0-Hly"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="724.61538461538464" y="88.862559241706151"/>
+            <point key="canvasLocation" x="724.61538461538464" y="91.706161137440759"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="DOY-2O-rFK">
+        <scene sceneID="e1s-ZX-13A">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="tI6-BL-BS3" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="76T-U0-2tW" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="F5b-K8-YyK">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ly7-f1-CaQ">
                         <rect key="frame" x="0.0" y="44" width="390" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="W62-3o-dFp"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="lDU-FB-uGb"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="EMo-gD-LHC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yCj-2Q-yS3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-204.61538461538461" y="88.862559241706151"/>
+            <point key="canvasLocation" x="-203.07692307692307" y="91.706161137440759"/>
         </scene>
     </scenes>
     <resources>

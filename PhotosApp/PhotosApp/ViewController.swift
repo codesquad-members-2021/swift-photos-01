@@ -9,11 +9,6 @@ import UIKit
 import Photos
 
 class ViewController: UIViewController {
-    @IBOutlet var imageCollectionView: UICollectionView!
-    
-    var fetchResult: PHFetchResult<PHAsset>!
-    let imageManager: PHCachingImageManager = PHCachingImageManager()
-
     override func viewDidLoad() {
         super.viewDidLoad()
         requestCollection()
