@@ -8,8 +8,6 @@
 import UIKit
 
 class ViewController: UIViewController {
-    @IBOutlet weak var photoCollectionView: PhotoCollectionView!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
     }

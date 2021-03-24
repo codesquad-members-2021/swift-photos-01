@@ -9,6 +9,7 @@ import UIKit
 
 class PhotoCell : UICollectionViewCell{
     @IBOutlet weak var imageView: UIImageView!
+    
     private var representedAssetIdentifier : String!
     
     override init(frame: CGRect) {

@@ -57,9 +57,6 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Photos" id="yx1-G0-Hly"/>
-                    <connections>
-                        <outlet property="photoCollectionView" destination="e3L-dR-jaP" id="81D-xc-K6W"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

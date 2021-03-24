@@ -7,7 +7,7 @@
 
 import Photos
 
-class PhotoDataManager : PhotoSender{
+class PhotoDataManager{
     private var allPhotos : PHFetchResult<PHAsset>!
     
     init() {
@@ -15,7 +15,7 @@ class PhotoDataManager : PhotoSender{
     }
     
     func sendPhotoMetaData(index : IndexPath) -> PHAsset{
-        return self.allPhotos.object(at: index.row)
+        return self.allPhotos.object(at: index.item)
     }
     
     func sendfetchCount() -> Int{
