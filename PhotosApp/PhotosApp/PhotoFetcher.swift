@@ -7,7 +7,7 @@
 
 import Photos
 
-class PhotoDataManager{
+class PhotoFetcher{
     private var allPhotos : PHFetchResult<PHAsset>!
     
     init() {

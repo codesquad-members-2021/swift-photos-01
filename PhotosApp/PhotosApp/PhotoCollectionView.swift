@@ -9,17 +9,19 @@ import UIKit
 
 class PhotoCollectionView : UICollectionView{
     private let datasourceManager : CollectionViewDataManager
+    private let photolibraryObserver : PhotoLibraryObserver
     
     init(collectionView : UICollectionView, frame: CGRect) {
         datasourceManager = CollectionViewDataManager()
-        let layout = UICollectionViewLayout()
-        super.init(frame: frame, collectionViewLayout: layout)
+        photolibraryObserver = PhotoLibraryObserver()
+        super.init(frame: frame, collectionViewLayout: UICollectionViewLayout())
         self.delegate = datasourceManager
         self.dataSource = datasourceManager
     }
     
     required init?(coder: NSCoder) {
         datasourceManager = CollectionViewDataManager()
+        photolibraryObserver = PhotoLibraryObserver()
         super.init(coder: coder)
         self.delegate = datasourceManager
         self.dataSource = datasourceManager
