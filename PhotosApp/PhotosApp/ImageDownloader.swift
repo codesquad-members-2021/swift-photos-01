@@ -8,5 +8,18 @@
 import UIKit
 
 struct ImageDownloader {
-    static func
+    static func imageDownload() -> [UIImage]{
+        let jsonManager : JSONDecoderManager = JSONDecoderManager()
+        var tempImages : [UIImage] = []
+        DispatchQueue.global().async {
+            for i in 0..<jsonManager.translateJSONtoSwift().count{
+                let url = URL(string: jsonManager.translateJSONtoSwift()[i]["image"] as! String)
+                let data = try? Data(contentsOf: url!)
+                DispatchQueue.global().async {
+                    tempImages.append(UIImage(data: data!)!)
+                }
+            }
+        }
+        return tempImages
+    }
 }

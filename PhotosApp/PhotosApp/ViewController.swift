@@ -9,10 +9,11 @@ import UIKit
 
 class ViewController: UIViewController {
     let collView : PhotoCollectionView = PhotoCollectionView()
-    
-    let JSONDecoderManage = JSONDecoderManager(fileName: "doodle")
+    let jsonManager : JSONDecoderManager = JSONDecoderManager()
+    var tempimage : [UIImage] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tempimage = ImageDownloader.imageDownload()
     }
 }

@@ -5,22 +5,16 @@
 //  Created by 양준혁 on 2021/03/24.
 //
 
-import UIKit
+import Foundation
 
 class JSONDecoderManager {
-    private let JSONDeocde: JSONDecoder
-    private let dataAsset: NSDataAsset?
-    
-    init(fileName: String) {
-        JSONDeocde = JSONDecoder()
-        dataAsset = NSDataAsset(name: fileName) ?? nil
-    }
-    
-    func decode() -> [GoogleThumbnail]? {
-        do {
-            return try JSONDeocde.decode([GoogleThumbnail].self, from: dataAsset!.data)
-        } catch {
-            return nil
+    func translateJSONtoSwift() -> [[String : Any]]{
+        var jsonData : [[String : Any]]!
+        let path = Bundle.main.path(forResource: "doodle", ofType: "json")
+        if let data = try? String(contentsOfFile: path!).data(using: .utf8){
+            let json = try! JSONSerialization.jsonObject(with: data, options: []) as! [[String : Any]]
+            jsonData = json
         }
+        return jsonData
     }
 }
