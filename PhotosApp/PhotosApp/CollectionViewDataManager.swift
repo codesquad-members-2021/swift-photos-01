@@ -23,5 +23,8 @@ class CollectionViewDataManager : NSObject, UICollectionViewDelegate, UICollecti
         let asset = photomanager.sendPhotoMetaData(index: indexPath)
         cell.imageView.image = PhotoRequester().sendImageToCell(asset: asset)
         return cell
+        
+        
+        
     }
 }
