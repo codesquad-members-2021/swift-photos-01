@@ -22,6 +22,8 @@
 		8295BF1E260B27E7000711B8 /* PhotoLibraryObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8295BF1D260B27E7000711B8 /* PhotoLibraryObserver.swift */; };
 		B301ED73260B6B2200FA2AC9 /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B301ED72260B6B2200FA2AC9 /* ImageDownloader.swift */; };
 		B301ED76260B6E5100FA2AC9 /* JSONDecoderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B301ED75260B6E5100FA2AC9 /* JSONDecoderManager.swift */; };
+		B3D75592260C746500BA6DE5 /* DoodleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D75591260C746500BA6DE5 /* DoodleCollectionViewCell.swift */; };
+		B3D75595260C748C00BA6DE5 /* DoodleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D75594260C748C00BA6DE5 /* DoodleViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,8 @@
 		8295BF1D260B27E7000711B8 /* PhotoLibraryObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoLibraryObserver.swift; sourceTree = "<group>"; };
 		B301ED72260B6B2200FA2AC9 /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
 		B301ED75260B6E5100FA2AC9 /* JSONDecoderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDecoderManager.swift; sourceTree = "<group>"; };
+		B3D75591260C746500BA6DE5 /* DoodleCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoodleCollectionViewCell.swift; sourceTree = "<group>"; };
+		B3D75594260C748C00BA6DE5 /* DoodleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoodleViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,7 +88,9 @@
 				B301ED72260B6B2200FA2AC9 /* ImageDownloader.swift */,
 				B301ED75260B6E5100FA2AC9 /* JSONDecoderManager.swift */,
 				828FC9382609DCF400110613 /* PhotoRequester.swift */,
+				B3D75594260C748C00BA6DE5 /* DoodleViewController.swift */,
 				8295BF0A260B0A8A000711B8 /* CollectionViewDataManager.swift */,
+				B3D75591260C746500BA6DE5 /* DoodleCollectionViewCell.swift */,
 				8295BF1D260B27E7000711B8 /* PhotoLibraryObserver.swift */,
 				828821B326086AE1003FCFA5 /* Main.storyboard */,
 				828821B626086AE3003FCFA5 /* Assets.xcassets */,
@@ -172,8 +178,10 @@
 				828FC92C2609BF2200110613 /* PhotoCell.swift in Sources */,
 				B301ED76260B6E5100FA2AC9 /* JSONDecoderManager.swift in Sources */,
 				828821B026086AE1003FCFA5 /* SceneDelegate.swift in Sources */,
+				B3D75592260C746500BA6DE5 /* DoodleCollectionViewCell.swift in Sources */,
 				8295BF0B260B0A8A000711B8 /* CollectionViewDataManager.swift in Sources */,
 				8295BF1E260B27E7000711B8 /* PhotoLibraryObserver.swift in Sources */,
+				B3D75595260C748C00BA6DE5 /* DoodleViewController.swift in Sources */,
 				828FC9392609DCF400110613 /* PhotoRequester.swift in Sources */,
 				B301ED73260B6B2200FA2AC9 /* ImageDownloader.swift in Sources */,
 			);
