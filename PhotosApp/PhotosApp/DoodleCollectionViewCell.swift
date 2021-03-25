@@ -14,7 +14,7 @@ class DoodleCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         imageView = UIImageView()
         super.init(frame: frame)
-        autolayout()
+        autolayout() 
     }
     
     required init?(coder: NSCoder) {
