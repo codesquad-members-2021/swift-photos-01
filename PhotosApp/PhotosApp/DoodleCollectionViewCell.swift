@@ -8,26 +8,26 @@
 import UIKit
 
 class DoodleCollectionViewCell: UICollectionViewCell {
-    let image: UIImageView
+    let imageView: UIImageView
 
     
     override init(frame: CGRect) {
-        image = UIImageView()
+        imageView = UIImageView()
         super.init(frame: frame)
         autolayout()
     }
     
     required init?(coder: NSCoder) {
-        image = UIImageView()
+        imageView = UIImageView()
         super.init(coder: coder)
         autolayout()
     }
     
     func autolayout() {
-        image.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        image.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
-        image.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
-        image.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-        self.addSubview(image)
+        imageView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+        imageView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
+        imageView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+        imageView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        self.addSubview(imageView)
     }
 }

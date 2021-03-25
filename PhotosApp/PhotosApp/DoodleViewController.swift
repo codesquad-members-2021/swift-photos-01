@@ -7,8 +7,6 @@
 
 import UIKit
 
-private let reuseIdentifier = "Cell"
-
 class DoodleViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     let closeButton: UIBarButtonItem = {
@@ -18,28 +16,23 @@ class DoodleViewController: UICollectionViewController, UICollectionViewDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "doodleCell")
         self.collectionView.backgroundColor = .darkGray
         self.navigationItem.rightBarButtonItem = closeButton
     }
 
-
-    override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 0
-    }
-
-
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 0
+        return JSONDecoderManager().translateJSONtoSwift().count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "doodleCell", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "doodleCell", for: indexPath) as! DoodleCollectionViewCell
+        cell.imageView.image = ImageDownloader.imageDownload()[indexPath.row]
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: 110, height: 50)
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        CGSize(width: 110, height: 50)
     }
     
     
