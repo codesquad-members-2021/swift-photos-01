@@ -19,7 +19,11 @@ class CollectionViewDataManager : NSObject, UICollectionViewDelegate, UICollecti
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell : PhotoCell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! PhotoCell
+        let cell : PhotoC
+        
+        
+        
+        ell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! PhotoCell
         let asset = photomanager.sendPhotoMetaData(index: indexPath)
         cell.imageView.image = PhotoRequester().sendImageToCell(asset: asset)
         return cell
