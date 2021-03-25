@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+struct GoogleThumbnail: Codable {
+    var title: String
+    var image: String
+    var date: Date
+}

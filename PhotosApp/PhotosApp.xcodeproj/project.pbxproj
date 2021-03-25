@@ -21,6 +21,7 @@
 		8295BF1E260B27E7000711B8 /* PhotoLibraryObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8295BF1D260B27E7000711B8 /* PhotoLibraryObserver.swift */; };
 		B301ED70260B6A1C00FA2AC9 /* doodle.json in Resources */ = {isa = PBXBuildFile; fileRef = B301ED6F260B6A1C00FA2AC9 /* doodle.json */; };
 		B301ED73260B6B2200FA2AC9 /* GoogleThumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = B301ED72260B6B2200FA2AC9 /* GoogleThumbnail.swift */; };
+		B301ED76260B6E5100FA2AC9 /* JSONDecoderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B301ED75260B6E5100FA2AC9 /* JSONDecoderManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		8295BF1D260B27E7000711B8 /* PhotoLibraryObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoLibraryObserver.swift; sourceTree = "<group>"; };
 		B301ED6F260B6A1C00FA2AC9 /* doodle.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = doodle.json; path = ../../doodle.json; sourceTree = "<group>"; };
 		B301ED72260B6B2200FA2AC9 /* GoogleThumbnail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleThumbnail.swift; sourceTree = "<group>"; };
+		B301ED75260B6E5100FA2AC9 /* JSONDecoderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDecoderManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 				828FC91D260981E800110613 /* PhotoCollectionView.swift */,
 				828FC9262609BE3600110613 /* PhotoFetcher.swift */,
 				B301ED72260B6B2200FA2AC9 /* GoogleThumbnail.swift */,
+				B301ED75260B6E5100FA2AC9 /* JSONDecoderManager.swift */,
 				828FC92B2609BF2200110613 /* PhotoCell.swift */,
 				828FC9382609DCF400110613 /* PhotoRequester.swift */,
 				8295BF0A260B0A8A000711B8 /* CollectionViewDataManager.swift */,
@@ -167,6 +170,7 @@
 				828FC91E260981E800110613 /* PhotoCollectionView.swift in Sources */,
 				828821AE26086AE1003FCFA5 /* AppDelegate.swift in Sources */,
 				828FC92C2609BF2200110613 /* PhotoCell.swift in Sources */,
+				B301ED76260B6E5100FA2AC9 /* JSONDecoderManager.swift in Sources */,
 				828821B026086AE1003FCFA5 /* SceneDelegate.swift in Sources */,
 				8295BF0B260B0A8A000711B8 /* CollectionViewDataManager.swift in Sources */,
 				8295BF1E260B27E7000711B8 /* PhotoLibraryObserver.swift in Sources */,

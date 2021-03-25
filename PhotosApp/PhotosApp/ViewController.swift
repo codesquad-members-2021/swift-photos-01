@@ -9,15 +9,11 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    init(){
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-    }
+    let JSONDecoderManage = JSONDecoderManager(fileName: "doodle")
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
+    func
 }
