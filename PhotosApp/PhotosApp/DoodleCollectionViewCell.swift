@@ -15,14 +15,12 @@ class DoodleCollectionViewCell: UICollectionViewCell {
         image = UIImageView()
         super.init(frame: frame)
         autolayout()
-        self.reuseIdentifier = "doodleCell"
     }
     
     required init?(coder: NSCoder) {
         image = UIImageView()
         super.init(coder: coder)
         autolayout()
-        self.reuseIdentifier = "doodleCell"
     }
     
     func autolayout() {
