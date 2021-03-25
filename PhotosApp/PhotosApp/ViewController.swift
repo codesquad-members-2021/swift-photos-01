@@ -8,12 +8,11 @@
 import UIKit
 
 class ViewController: UIViewController {
+    let collView : PhotoCollectionView = PhotoCollectionView()
     
     let JSONDecoderManage = JSONDecoderManager(fileName: "doodle")
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
-    func
 }

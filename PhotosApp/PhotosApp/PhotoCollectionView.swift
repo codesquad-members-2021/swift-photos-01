@@ -11,7 +11,7 @@ class PhotoCollectionView : UICollectionView{
     private let datasourceManager : CollectionViewDataManager
     private let photolibraryObserver : PhotoLibraryObserver
     
-    init(collectionView : UICollectionView, frame: CGRect) {
+    override init(frame: CGRect, collectionViewLayout: UICollectionViewLayout) {
         datasourceManager = CollectionViewDataManager()
         photolibraryObserver = PhotoLibraryObserver()
         super.init(frame: frame, collectionViewLayout: UICollectionViewLayout())
