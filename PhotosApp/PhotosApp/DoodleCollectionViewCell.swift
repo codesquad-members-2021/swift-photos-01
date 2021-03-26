@@ -14,21 +14,22 @@ class DoodleCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         imageView = UIImageView()
         super.init(frame: frame)
-        self.imageView.frame = CGRect(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height)
-        //autolayout()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        autolayout()
     }
     
     required init?(coder: NSCoder) {
         imageView = UIImageView()
         super.init(coder: coder)
-        //autolayout()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        autolayout()
     }
     
     func autolayout() {
+        self.addSubview(imageView)
         imageView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
         imageView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
         imageView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
         imageView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-        self.addSubview(imageView)
     }
 }
