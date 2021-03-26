@@ -14,13 +14,14 @@ class DoodleCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         imageView = UIImageView()
         super.init(frame: frame)
-        autolayout() 
+        self.imageView.frame = CGRect(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height)
+        //autolayout()
     }
     
     required init?(coder: NSCoder) {
         imageView = UIImageView()
         super.init(coder: coder)
-        autolayout()
+        //autolayout()
     }
     
     func autolayout() {

@@ -16,7 +16,7 @@ class DoodleViewController: UICollectionViewController, UICollectionViewDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "doodleCell")
+        self.collectionView.register(DoodleCollectionViewCell.self, forCellWithReuseIdentifier: "doodleCell")
         self.collectionView.backgroundColor = .darkGray
         self.navigationItem.rightBarButtonItem = closeButton
     }
@@ -26,8 +26,21 @@ class DoodleViewController: UICollectionViewController, UICollectionViewDelegate
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "doodleCell", for: indexPath) as! DoodleCollectionViewCell
-        cell.imageView.image = ImageDownloader.imageDownload()[indexPath.row]
+        let cell : DoodleCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "doodleCell", for: indexPath) as! DoodleCollectionViewCell
+        let jsondecoder : JSONDecoderManager = JSONDecoderManager()
+        DispatchQueue.global().async {
+            print(jsondecoder.translateJSONtoSwift().count)
+            for i in 0..<jsondecoder.translateJSONtoSwift().count{
+                let url = URL(string: jsondecoder.translateJSONtoSwift()[i]["image"] as! String)
+                print(url!)
+                let data = try? Data(contentsOf: url!)
+                DispatchQueue.main.async {
+                    if let tempdata = data {
+                        cell.imageView.image = UIImage(data: tempdata)
+                    }
+                }
+            }
+        }
         return cell
     }
     

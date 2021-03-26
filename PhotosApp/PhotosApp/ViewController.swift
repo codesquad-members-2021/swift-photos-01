@@ -10,18 +10,14 @@ import UIKit
 class ViewController: UIViewController {
     var doodleViewController: DoodleViewController!
     var doodleNavigationController: UINavigationController!
-    let collView : PhotoCollectionView = PhotoCollectionView()
-    let jsonManager : JSONDecoderManager = JSONDecoderManager()
-    var tempimage : [UIImage] = []
-    let layout:UICollectionViewFlowLayout = UICollectionViewFlowLayout.init()
+    let layout: UICollectionViewLayout = UICollectionViewFlowLayout.init()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         doodleViewController = DoodleViewController.init(collectionViewLayout: layout)
         doodleNavigationController = UINavigationController(rootViewController: doodleViewController)
-        tempimage = ImageDownloader.imageDownload()
-        
     }
+    
     @IBAction func pressButton(_ sender: Any) {
         self.present(doodleNavigationController, animated: true, completion: nil)
     }
